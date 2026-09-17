@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Алёна Навныко — Project Manager</title>
+<meta name="description" content="Портфолио Алёны Навныко: управление проектами от брифа до сдачи заказчику — мобильные и настольные игры, корпоративные квесты, и личные проекты с генеративным ИИ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,680;1,9..144,500;1,9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Tokens ---------- */
+  :root{
+    --ink:#16232b;
+    --ink-soft:#3c4c56;
+    --paper:#edefe8;
+    --paper-raised:#f6f7f1;
+    --line: rgba(22,35,43,0.14);
+    --line-strong: rgba(22,35,43,0.28);
+    --amber:#c8811a;
+    --amber-soft: rgba(200,129,26,0.14);
+    --seafoam:#1f7a6c;
+    --seafoam-soft: rgba(31,122,108,0.14);
+    --coral:#c14a30;
+    --coral-soft: rgba(193,74,48,0.12);
+    --shadow: 0 1px 2px rgba(22,35,43,0.06), 0 8px 24px -12px rgba(22,35,43,0.18);
+    --radius: 14px;
+    --maxw: 1120px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#eceee6;
+      --ink-soft:#b7c0bd;
+      --paper:#111a20;
+      --paper-raised:#16222a;
+      --line: rgba(236,238,230,0.14);
+      --line-strong: rgba(236,238,230,0.26);
+      --amber:#f0b84e;
+      --amber-soft: rgba(240,184,78,0.14);
+      --seafoam:#4fc0ae;
+      --seafoam-soft: rgba(79,192,174,0.14);
+      --coral:#ff8266;
+      --coral-soft: rgba(255,130,102,0.14);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#eceee6;
+    --ink-soft:#b7c0bd;
+    --paper:#111a20;
+    --paper-raised:#16222a;
+    --line: rgba(236,238,230,0.14);
+    --line-strong: rgba(236,238,230,0.26);
+    --amber:#f0b84e;
+    --amber-soft: rgba(240,184,78,0.14);
+    --seafoam:#4fc0ae;
+    --seafoam-soft: rgba(79,192,174,0.14);
+    --coral:#ff8266;
+    --coral-soft: rgba(255,130,102,0.14);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:640;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    text-wrap:balance;
+    margin:0;
+  }
+  .mono{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+  section{padding:88px 0;}
+  section + section{border-top:1px solid var(--line);}
+  @media (max-width:680px){
+    section{padding:64px 0;}
+    .wrap{padding:0 20px;}
+  }
+
+  /* ---------- Nav ---------- */
+  header.site{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .navrow{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:"Fraunces", serif; font-weight:600; font-size:18px;
+    text-decoration:none;
+  }
+  nav.links{display:flex; gap:24px; font-size:14px;}
+  nav.links a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px;}
+  nav.links a:hover{color:var(--ink); border-color:var(--line-strong);}
+  .navcta{
+    font-size:13px; padding:8px 14px; border-radius:100px;
+    border:1px solid var(--line-strong); text-decoration:none;
+    font-family:"IBM Plex Mono", monospace;
+  }
+  @media (max-width:720px){ nav.links{display:none;} }
+
+  /* ---------- Hero ---------- */
+  .hero{padding-top:64px; padding-bottom:64px;}
+  .hero-grid{
+    display:grid; grid-template-columns: 1.3fr 0.9fr; gap:56px; align-items:start;
+  }
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero h1{font-size:clamp(38px, 5.4vw, 62px); margin-top:14px;}
+  .hero .lede{
+    font-family:"Fraunces", serif; font-weight:500;
+    font-size:20px; color:var(--ink-soft); margin-top:18px; max-width:52ch;
+  }
+  .portrait-card{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px; box-shadow:var(--shadow);
+  }
+  .portrait-card img{border-radius:50%; width:104px; height:104px; object-fit:cover; border:3px solid var(--paper);}
+  .portrait-photos{display:flex;}
+  .portrait-photos img:nth-child(2){margin-left:-24px;}
+  .portrait-meta{margin-top:16px; font-size:14px; color:var(--ink-soft);}
+  .portrait-meta div{display:flex; justify-content:space-between; gap:10px; padding:7px 0; border-top:1px solid var(--line);}
+  .portrait-meta div:first-child{border-top:none;}
+  .portrait-meta b{color:var(--ink); font-weight:500; font-family:"IBM Plex Mono", monospace; font-size:13px;}
+
+  .stat-strip{
+    display:grid; grid-template-columns:repeat(5, 1fr); gap:14px; margin-top:44px;
+  }
+  @media (max-width:680px){ .stat-strip{grid-template-columns:repeat(2,1fr);} }
+  .stat{
+    border-left:2px dashed var(--line-strong); padding-left:14px; padding-right:16px;
+  }
+  .stat .num{font-family:"IBM Plex Mono", monospace; font-size:28px; font-weight:500; color:var(--amber);}
+  .stat .lab{font-size:12.5px; color:var(--ink-soft); margin-top:4px; overflow-wrap:break-word;}
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--ink); color:var(--paper);
+    padding:12px 20px; border-radius:100px; text-decoration:none;
+    font-size:14px; font-weight:500; border:1px solid var(--ink);
+  }
+  :root[data-theme="dark"] .btn, @media (prefers-color-scheme:dark){ .btn{} }
+  .btn:hover{opacity:0.85;}
+  .btn.ghost{background:transparent; color:var(--ink); border:1px solid var(--line-strong);}
+
+  /* ---------- Section heading pattern ---------- */
+  .sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:20px; margin-bottom:36px; flex-wrap:wrap;}
+  .sec-head h2{font-size:clamp(26px,3.4vw,36px);}
+  .sec-head .eyebrow{margin-bottom:8px; display:block;}
+
+  /* ---------- About ---------- */
+  .about-body{display:grid; grid-template-columns:1.4fr 1fr; gap:48px;}
+  @media (max-width:860px){ .about-body{grid-template-columns:1fr;} }
+  .about-body p{font-size:17px; max-width:60ch;}
+  .about-body p + p{margin-top:14px;}
+
+  .process{
+    margin-top:40px; display:grid; grid-template-columns:repeat(5,1fr); gap:0;
+    border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+  }
+  @media (max-width:860px){ .process{grid-template-columns:1fr;} }
+  .process .step{
+    padding:20px 18px; border-left:1px solid var(--line);
+  }
+  .process .step:first-child{border-left:none;}
+  @media (max-width:860px){ .process .step{border-left:none; border-top:1px solid var(--line);} .process .step:first-child{border-top:none;} }
+  .process .step .n{font-family:"IBM Plex Mono", monospace; color:var(--seafoam); font-size:13px;}
+  .process .step .t{font-weight:500; margin-top:6px; font-size:14.5px;}
+
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;}
+  .chip{
+    font-family:"IBM Plex Mono", monospace; font-size:12.5px;
+    padding:6px 11px; border-radius:100px; border:1px solid var(--line-strong);
+    color:var(--ink-soft);
+  }
+  .edu-note{margin-top:28px; font-size:13.5px; color:var(--ink-soft); border-top:1px solid var(--line); padding-top:16px;}
+
+  /* ---------- Timeline ---------- */
+  .timeline{display:flex; flex-direction:column; gap:0;}
+  .trow{
+    display:grid; grid-template-columns: 140px 1fr; gap:24px;
+    padding:22px 0; border-top:1px solid var(--line);
+  }
+  .timeline .trow:first-child{border-top:none;}
+  @media (max-width:640px){ .trow{grid-template-columns:1fr; gap:6px;} }
+  .trow .when{font-family:"IBM Plex Mono", monospace; font-size:13px; color:var(--ink-soft); padding-top:3px;}
+  .trow h3{font-size:18px; font-weight:600; font-family:"IBM Plex Sans"; }
+  .trow .org{color:var(--seafoam); font-size:14px; margin-top:2px;}
+  .trow ul{margin:10px 0 0; padding-left:18px; font-size:14.5px;}
+  .trow li{margin-bottom:5px;}
+
+  /* ---------- Cases ---------- */
+  .case-tag{
+    display:inline-block; font-family:"IBM Plex Mono", monospace; font-size:11.5px;
+    text-transform:uppercase; letter-spacing:0.08em;
+    padding:4px 10px; border-radius:100px; background:var(--seafoam-soft); color:var(--seafoam);
+    margin-bottom:14px;
+  }
+  .case-feature{
+    border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+    background:var(--paper-raised); box-shadow:var(--shadow);
+  }
+  .case-feature .cf-top{padding:32px 32px 0;}
+  @media (max-width:640px){ .case-feature .cf-top{padding:24px 20px 0;} }
+  .case-feature h3{font-size:26px;}
+  .case-feature .role{font-size:14px; color:var(--ink-soft); margin-top:8px;}
+  .case-feature p.desc{margin-top:14px; font-size:15.5px; max-width:64ch;}
+  .cf-stats{display:flex; gap:28px; margin-top:22px; flex-wrap:wrap;}
+  .cf-stats .s{font-family:"IBM Plex Mono", monospace;}
+  .cf-stats .s b{color:var(--amber); font-size:20px; display:block;}
+  .cf-stats .s span{font-size:12px; color:var(--ink-soft);}
+  .gallery{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:28px;}
+  .gallery img{width:100%; height:100%; object-fit:cover; aspect-ratio:2.1/1;}
+  .gallery figure{margin:0;}
+  @media (max-width:640px){ .gallery{grid-template-columns:1fr;} }
+
+  .case-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:26px;}
+  @media (max-width:800px){ .case-grid{grid-template-columns:1fr;} }
+  .case-card{
+    border:1px solid var(--line); border-radius:var(--radius); padding:26px;
+    background:var(--paper-raised);
+  }
+  .case-card h3{font-size:20px;}
+  .case-card .role{font-size:13.5px; color:var(--ink-soft); margin-top:6px;}
+  .case-card p.desc{font-size:14.5px; margin-top:12px;}
+  .case-card ul.feats{margin:14px 0 0; padding-left:18px; font-size:13.5px; color:var(--ink-soft);}
+  .case-card ul.feats li{margin-bottom:5px;}
+  .case-card .result{
+    margin-top:16px; padding-top:14px; border-top:1px dashed var(--line-strong);
+    font-size:13.5px;
+  }
+  .case-card .result b{color:var(--seafoam);}
+  .cases-note{margin-top:24px; font-size:13.5px; color:var(--ink-soft);}
+
+  .case-gallery{display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; margin-top:16px;}
+  .case-gallery img{width:100%; height:100%; object-fit:cover; aspect-ratio:1/1; border-radius:6px; border:1px solid var(--line);}
+
+  /* ---------- Own project ---------- */
+  .own-grid{display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;}
+  @media (max-width:800px){ .own-grid{grid-template-columns:1fr;} }
+  .box-art{
+    aspect-ratio:1; border-radius:var(--radius); border:1px solid var(--line-strong);
+    background:
+      repeating-linear-gradient(45deg, var(--amber-soft) 0 12px, transparent 12px 24px);
+    display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+  }
+  .box-art .tag{
+    position:absolute; top:16px; left:16px; font-family:"IBM Plex Mono", monospace;
+    font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.08em;
+  }
+  .box-art svg{width:52%; height:52%;}
+  .own-grid h3{font-size:24px; margin-top:10px;}
+  .own-grid p.desc{margin-top:14px; font-size:15.5px; max-width:56ch;}
+  .retail-list{margin-top:18px; display:flex; gap:8px; flex-wrap:wrap;}
+  .retail-list a, .retail-list span{
+    font-size:12.5px; font-family:"IBM Plex Mono", monospace; color:var(--ink-soft);
+    border:1px solid var(--line); padding:5px 10px; border-radius:100px;
+    text-decoration:none;
+  }
+  .retail-list a:hover{color:var(--seafoam); border-color:var(--seafoam);}
+
+  /* ---------- AI section ---------- */
+  .ai-section{background:var(--paper-raised); border-top:1px dashed var(--line-strong); border-bottom:1px dashed var(--line-strong);}
+  .ai-intro{max-width:64ch; font-size:15.5px;}
+  .ai-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; margin-top:32px; align-items:start;}
+  @media (max-width:900px){ .ai-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .ai-grid{grid-template-columns:1fr;} }
+  .ai-card{
+    border:1px solid var(--line-strong); border-radius:var(--radius); overflow:hidden; background:var(--paper);
+  }
+  .ai-card video{width:100%; max-height:520px; display:block; background:#000; object-fit:contain;}
+  .ai-card .embed-wrap{position:relative; width:100%; aspect-ratio:16/9; max-height:520px; background:#000;}
+  .ai-card .embed-wrap iframe{position:absolute; top:0; left:0; width:100%; height:100%; border:0;}
+  .ai-card .meta{padding:18px 20px;}
+  .ai-card h3{font-size:17px;}
+  .ai-card p{font-size:13.5px; color:var(--ink-soft); margin-top:8px;}
+  .ai-tools{margin-top:10px; display:flex; flex-wrap:wrap; gap:6px;}
+  .ai-tools span{font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--ink-soft); background:var(--paper-raised); border:1px solid var(--line); border-radius:4px; padding:3px 8px;}
+  .ai-footnote{
+    margin-top:26px; font-size:13.5px; color:var(--ink-soft);
+    border-left:2px dashed var(--line-strong); padding-left:14px;
+  }
+  .ai-footnote + .ai-footnote{margin-top:14px;}
+
+  /* ---------- Tools ---------- */
+  .tool-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  @media (max-width:860px){ .tool-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .tool-grid{grid-template-columns:1fr;} }
+  .tool-cat .eyebrow{color:var(--seafoam); margin-bottom:10px;}
+  .tool-cat ul{list-style:none; margin:0; padding:0; font-size:14.5px;}
+  .tool-cat li{padding:6px 0; border-top:1px solid var(--line);}
+  .tool-cat li:first-child{border-top:none;}
+
+  /* ---------- Footer ---------- */
+  footer{padding:64px 0 48px;}
+  .foot-grid{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;}
+  .foot-contacts{font-family:"IBM Plex Mono", monospace; font-size:14px; display:flex; flex-direction:column; gap:6px;}
+  .foot-contacts a{text-decoration:none;}
+  .foot-note{font-size:12.5px; color:var(--ink-soft); margin-top:36px; border-top:1px solid var(--line); padding-top:18px;}
+
+  :focus-visible{outline:2px solid var(--seafoam); outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap navrow">
+    <a class="brand" href="#top">Навныко</a>
+    <nav class="links">
+      <a href="#about">Обо мне</a>
+      <a href="#experience">Опыт</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#own">Своё</a>
+      <a href="#ai">ИИ</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a class="navcta" href="assets/files/Navynko_Alena_CV.pdf">Резюме ↓</a>
+  </div>
+</header>
+
+<div id="top"></div>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Project Manager · Санкт-Петербург</span>
+      <h1>Алёна Навныко</h1>
+      <p class="lede">Провожу проекты через весь цикл — от брифа до сдачи заказчику: мобильные игры, настольные игры, корпоративные образовательные продукты и многое другое.<br>И всё чаще — с генеративным ИИ в команде.</p>
+      <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn" href="#cases">Смотреть кейсы</a>
+        <a class="btn ghost" href="assets/files/Navynko_Alena_CV.pdf">Скачать резюме</a>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat"><div class="num">15+</div><div class="lab">проектов реализовано</div></div>
+        <div class="stat"><div class="num">4–8</div><div class="lab">человек в кросс-функциональной команде</div></div>
+        <div class="stat"><div class="num">−20%</div><div class="lab">к срокам после нового фреймворка</div></div>
+        <div class="stat"><div class="num">1</div><div class="lab">мобильная игра в проде</div></div>
+        <div class="stat"><div class="num">1</div><div class="lab">настольная игра на прилавках</div></div>
+      </div>
+    </div>
+
+    <div class="portrait-card">
+      <img src="assets/img/avatar-cycle.gif" alt="Алёна Навныко" width="104" height="104">
+      <div class="portrait-meta">
+        <div><span>Роль</span><b>Project Manager</b></div>
+        <div><span>Город</span><b>Санкт-Петербург</b></div>
+        <div><span>Формат</span><b>Позиция / фриланс</b></div>
+        <div><span>Английский</span><b>B1</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">01 — Обо мне</span>
+        <h2>Продюсер, который доводит дело до конца</h2>
+      </div>
+    </div>
+    <div class="about-body">
+      <div>
+        <p>Руковожу проектами почти семь лет — начинала с переговоров и продаж корпоративным клиентам, затем два с половиной года вела полный цикл продакшна в компании детских образовательных продуктов: бриф, техническое задание, кросс-функциональная команда, сдача заказчику. За это время реализовала 15+ проектов, включая разработку мобильной игры для детей с нуля.</p>
+        <p>Отдельно — то, что делаю по своей инициативе: придумала и выпустила настольную игру, которая продаётся в магазинах, а в последний год всё больше работаю с генеративным ИИ — от сценария и музыки до готового видео. Ищу роль, где ценится именно это сочетание: дисциплина проектного управления и живой интерес к тому, что ИИ уже умеет делать.</p>
+
+        <div class="edu-note">
+          Образование: СПб Торгово-Экономический институт, товаровед-эксперт потребительских товаров (2009) · дополнительно — «Аналитик данных», SkyPRO (2026)
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">Как я веду проект</span>
+        <div class="chips" style="margin-top:16px;">
+          <span class="chip">Agile / Scrum</span>
+          <span class="chip">Планирование спринтов</span>
+          <span class="chip">Ведение бэклога</span>
+          <span class="chip">Работа с ТЗ</span>
+          <span class="chip">Trello · Kaiten · Miro</span>
+          <span class="chip">SQL / BI</span>
+          <span class="chip">CRM: Bpm, AmoCRM</span>
+          <span class="chip">Генеративный ИИ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="process">
+      <div class="step"><div class="n">01</div><div class="t">Бриф</div></div>
+      <div class="step"><div class="n">02</div><div class="t">ТЗ и бэклог</div></div>
+      <div class="step"><div class="n">03</div><div class="t">Продакшн, кросс-функциональная команда</div></div>
+      <div class="step"><div class="n">04</div><div class="t">Проверка и правки</div></div>
+      <div class="step"><div class="n">05</div><div class="t">Сдача заказчику</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">02 — Опыт</span>
+        <h2>Путь по ролям</h2>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="trow">
+        <div class="when">2025<br>9 мес.</div>
+        <div>
+          <h3>Руководитель проектов</h3>
+          <div class="org">ООО «Красивый город», Санкт-Петербург</div>
+          <ul>
+            <li>Управляла полным циклом реализации проектов — от макета до сдачи в эксплуатацию</li>
+            <li>Координировала конструкторский отдел, проектно-техническую команду и подрядчиков</li>
+            <li>Взаимодействовала с крупными застройщиками и бюджетными заказчиками</li>
+          </ul>
+        </div>
+      </div>
+      <div class="trow">
+        <div class="when">2022–2024<br>2 г. 6 мес.</div>
+        <div>
+          <h3>Руководитель проектов</h3>
+          <div class="org">ООО «Банда умников» · детские образовательные продукты</div>
+          <ul>
+            <li>Реализовала 15+ проектов, включая разработку мобильной игры для детей с нуля (9 уровней, 54 головоломки)</li>
+            <li>Управляла кросс-функциональной командой 4–8 человек: бэклог, сроки, таск-трекинг</li>
+            <li>Внедрила фреймворк тайм-менеджмента — сроки реализации сократились на 20%</li>
+            <li>Согласовала с заказчиком расширение функциональности — бюджет проекта вырос в 2 раза</li>
+            <li>Придумала настольную игру для бренда, которая продаётся на всех маркетплейсах</li>
+          </ul>
+        </div>
+      </div>
+      <div class="trow">
+        <div class="when">2018–2022<br>3 г. 9 мес.</div>
+        <div>
+          <h3>Менеджер по работе с корпоративными клиентами</h3>
+          <div class="org">ООО «Банда умников» · детские образовательные продукты</div>
+          <ul>
+            <li>Привлекла «вхолодную» 4 крупных клиента, выиграла тендер</li>
+            <li>Подготовила 100+ презентаций, провела 50+ встреч с заказчиками</li>
+            <li>Настраивала CRM — сократила время обработки лидов на 15%</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">03 — Проекты для клиентов</span>
+        <h2>От брифа до сдачи заказчику</h2>
+      </div>
+    </div>
+
+    <div class="case-feature">
+      <div class="cf-top">
+        <span class="case-tag">Заказной проект</span>
+        <h3>Nudibranches — обучающая игра для детского косметического бренда</h3>
+        <div class="role">Роль: руководитель проекта, от брифа до релиза · команда 8 человек</div>
+        <p class="desc">Для бренда детской косметики Nudibranches вела разработку развивающего мобильного приложения на Unity — от идеи и брифа до релиза. Вселенная игры — 9 подводных «домиков»-уровней, в каждом три комнаты и шесть мини-игр на логику, память и пространственное мышление. Ребёнок проходит уровни, попутно знакомясь с персонажами и продукцией бренда.</p>
+        <div class="cf-stats">
+          <div class="s"><b>9</b><span>игровых уровней</span></div>
+          <div class="s"><b>54</b><span>уникальные головоломки</span></div>
+          <div class="s"><b>8</b><span>человек в команде</span></div>
+          <div class="s"><b>−20%</b><span>к срокам после нового фреймворка</span></div>
+        </div>
+        <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn ghost" href="https://apps.apple.com/ru/app/nudibranches-%D0%B8%D0%B3%D1%80%D0%B0-%D0%B4%D0%BB%D1%8F-%D0%B4%D0%B5%D1%82%D0%B5%D0%B9/id6746114421" target="_blank" rel="noopener">Скачать в App Store</a>
+          <a class="btn ghost" href="https://play.google.com/store/apps/details?id=ru.goldapple.nudibranches&hl=en" target="_blank" rel="noopener">Скачать в Google Play</a>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure><img src="assets/img/nudibranches-appstore.png" alt="Скриншот приложения Nudibranches из App Store" loading="lazy"></figure>
+        <figure><img src="assets/img/phone-puzzle-1.jpg" alt="Головоломка на сетке — начало уровня" loading="lazy"></figure>
+        <figure><img src="assets/img/phone-victory.jpg" alt="Экран победы после решения головоломки" loading="lazy"></figure>
+      </div>
+    </div>
+
+    <div class="case-grid">
+      <div class="case-card">
+        <span class="case-tag" style="background:var(--amber-soft); color:var(--amber);">Заказной проект</span>
+        <h3>Альфа-Банк — квест по финансовой грамотности</h3>
+        <div class="role">Роль: PM от брифа до передачи клиенту</div>
+        <p class="desc">Офлайн-квест для отделений банка: дети 9–14 лет решают финансовые головоломки в вымышленном городе Котосити, знакомясь с детской картой и приложением банка по пути.<br>Проект реализован в плотном сотрудничестве с командой продукта Альфа Kids и командой маркетинга Альфа-Банка — с жёсткими требованиями к стилистике, визуалу и подаче материала.</p>
+        <ul class="feats">
+          <li>Команды формируются случайно — через стартовые задания, развивающие лидерство</li>
+          <li>Задания основаны на жизненных ситуациях: накопления, кэшбек, выгодные покупки</li>
+          <li>Видеоинструкция для организаторов — квест проводим в отделении любого размера</li>
+        </ul>
+        <div class="result">Запущено в отделениях по разным городам России; <b>позитивная обратная связь</b> от банка.</div>
+        <div class="case-gallery">
+          <img src="https://static.tildacdn.com/tild6533-3465-4961-a665-626230643231/photo.png" alt="Фото проведения квеста в отделении Альфа-Банка" loading="lazy">
+          <img src="https://static.tildacdn.com/tild3532-3632-4136-a138-396233373564/_14.png" alt="Персонажи-коты квеста Альфа-Банка" loading="lazy">
+          <img src="https://static.tildacdn.com/tild6238-3135-4465-b839-626637636234/_61.png" alt="Сюжетная сцена города Котосити" loading="lazy">
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-tag" style="background:var(--amber-soft); color:var(--amber);">Заказной проект</span>
+        <h3>Уралхим — новогодние игры для детей сотрудников</h3>
+        <div class="role">Роль: PM от брифа до передачи клиенту</div>
+        <p class="desc">Две настольные игры как корпоративный новогодний подарок: «Уралхим Мемо» (0–5 лет) — своя разработка, и «Уралхим Кругозорник» (6–16 лет) — адаптация под фирменный стиль.</p>
+        <ul class="feats">
+          <li>Реальные референсы отрасли: форма шахтёров, чертежи производственных объектов</li>
+          <li>Дизайн адаптирован под брендбук и габариты подарочной коробки</li>
+          <li>Интерактивная дорожная карта проекта — от ТЗ до отгрузки</li>
+          <li>45 уникальных иллюстраций, отрисованных специально для заказчика</li>
+        </ul>
+        <div class="result">Игры одобрены HR-департаментом и <b>арт-директором компании «Уралхим»</b>.</div>
+        <div class="case-gallery">
+          <img src="https://static.tildacdn.com/tild3630-3136-4838-b063-623833623439/02_.png" alt="Игра «Уралхим Мемо» для малышей" loading="lazy">
+          <img src="https://static.tildacdn.com/tild6366-3666-4438-b535-613766666536/04_.png" alt="Карточки игры с иллюстрациями производственных объектов" loading="lazy">
+          <img src="https://static.tildacdn.com/tild3261-3766-4435-b939-666633646133/11_.png" alt="Игра «Уралхим Кругозорник» для детей старшего возраста" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <p class="cases-note">Плюс 10+ других проектов для детских образовательных продуктов — от идеи до сдачи, без претензий по итогам приёмки.</p>
+  </div>
+</section>
+
+<section id="own">
+  <div class="wrap own-grid">
+    <div class="box-art">
+      <span class="tag">Внутренний проект</span>
+      <img src="https://static.tildacdn.com/stor3562-3535-4339-a438-663530373632/405fd7ab4c9f34b03927db60e537de2e.png" alt="Коробка настольной игры «Котомаркет»" style="width:80%; height:auto; object-fit:contain;">
+    </div>
+    <div>
+      <span class="eyebrow">04 — Внутренний проект</span>
+      <h3>Котомаркет — настольная игра собственной разработки</h3>
+      <p class="desc">Котомаркет — идея и разработка для внутреннего заказчика, издательства «<a href="https://bandaumnikov.ru/product/kotomarket/?ysclid=mu2m381ova444440064" target="_blank" rel="noopener" style="color:var(--seafoam); text-decoration:underline;">Банда умников</a>»: придумала концепцию и механику сама, довела до релиза. Игра выпущена тиражом и продаётся в рознице и на маркетплейсах.</p>
+      <div class="retail-list">
+        <a href="https://hobbygames.ru/kotomarket/rules?ysclid=mu2xjhhkhw754012824" target="_blank" rel="noopener">GaGaGames</a>
+        <a href="https://www.ozon.ru/product/nastolnaya-razvivayushchaya-igra-kotomarket-igra-v-magazin-dlya-detey-ot-4-let-uchim-schet-1956794866/?at=1rCl1Rk52eNc1PYOQmv0ufgsg2aG4Vth&amp;abt_att=1&amp;origin_referer=www.ozon.ru&amp;captchaDone=true&amp;sh=GNBylUbH6w" target="_blank" rel="noopener">Ozon</a>
+        <a href="https://market.yandex.ru/card/nastolnaya-razvivayushchaya-igra-kotomarket-igra-v-magazin-dlya-detey-ot-4-let-uchim-schet-i-matematiku-podarok-devochke-i-malchiku-v-sadik-i-v-shkolu-na-klass-pervoklassniku-banda-umnikov/6199295290?do-waremd5=WK6b6O_miuewhD44Xx3YBQ&amp;sponsored=1&amp;cpc=rrlyU071-VVtmyGV2KEQe0hutBL1KvcTYdZNoAbWROyrhyI2aCrlvwFDLtygtah0N1vjuguknM_XqKf0xE6fT_h4AlqovyO44C_y68rrepd4bkrFn-xjuTWhXIRkWQxT70slWMr4wzBL8Fk94E422cFq3qUQrFXA2yEv2jFVr6pxwLEjM4TubXzGFWmCu3zxPqPHIDTWX3dg10Wu5u-WrcKDSe9Is-eEJBWwOngLmmhr_35qtRd1e9iJtVLfAf2D925XNttsN-dN0mii76ciXzzuGh_YJTwNoYG0dIom63Osx40ahLUtiL8Fh-KmjruV_Ox_dfn20ItHPh4nSwaLGvdoQCeWh62qESN1DxvM-nT8XizV_NGVUa7wLTJDNKfdYYdYPoPI4Sk3IwYEZoaIp0XLKnwi_RTebz0WaoCecxynpn59XPwKGmz5-hvBaW7ytUbGM7WfeV1HgB6y1ZtcQynp3-T36LdJHCBNtOC9dWyjI9OZNwC12t6_--fzgZGmYHCiGSdlWPlMwg2B8YZOgDAiOqDhJ-dOQJJl-b2IuWefYU41LpoxqwJ2laxi-32f&amp;nid=18042069&amp;clid=703&amp;ogV=-12" target="_blank" rel="noopener">Яндекс Маркет</a>
+      </div>
+      <div class="case-gallery" style="margin-top:20px; max-width:420px;">
+        <img src="https://optim.tildacdn.com/stor6565-6133-4639-b132-373332653239/-/format/webp/6987abca0098e9d1a1f26d8f9179e529.jpg.webp" alt="Настольная игра «Котомаркет»" loading="lazy">
+        <img src="https://static.bandaumnikov.ru/media/product/kotomarket/%D0%98%D0%BC%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B8%D0%B3%D1%80%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%B0.jpg" alt="Карточки игры «Котомаркет»" loading="lazy">
+        <img src="assets/img/kotomarket-komplekt.jpg" alt="Полный комплект настольной игры «Котомаркет» — коробка и все компоненты" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ai" class="ai-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">05 — Личные проекты</span>
+        <h2>Генеративный ИИ в деле</h2>
+      </div>
+    </div>
+    <p class="ai-intro">ИИ — не абстрактный интерес, а рабочий инструмент, который использую сама: от идеи и сценария до готовой музыки, видео и монтажа. Ниже — три ролика, сделанных полностью самостоятельно, с нуля до финального файла.</p>
+
+    <div class="ai-grid">
+      <div class="ai-card">
+        <video controls preload="metadata" poster="assets/img/poster-arhimeda.jpg">
+          <source src="assets/video/zakon-arhimeda.mp4" type="video/mp4">
+        </video>
+        <div class="meta">
+          <h3>«Закон Архимеда»</h3>
+          <p>Когда сын-восьмиклассник не мог понять тему из физики в школе, решила объяснить её через ИИ. Так получился комедийный образовательный ролик: ИИ-персонаж — енот-физик — объясняет закон Архимеда игрушечной уткой в тазу с водой. Сценарий, визуал и монтаж — полностью через генеративный ИИ.</p>
+          <div class="ai-tools"><span>Grok</span><span>DeepSeek</span></div>
+        </div>
+      </div>
+      <div class="ai-card">
+        <video controls preload="metadata" poster="assets/img/poster-mama.jpg">
+          <source src="assets/video/klip-dlya-mamy-preview.mp4" type="video/mp4">
+        </video>
+        <div class="meta">
+          <h3>«Клип для мамы»</h3>
+          <p>Когда захотелось сделать приятное на день рождения, снова обратилась к ИИ. Так получился личный клип, сделанный по такому же принципу — от идеи до готового видео. Выше — 1,5-минутный отрывок; <a href="https://drive.google.com/file/d/1GQwqkZwCWh5OTUDln_Bahxv662M4Yige/view?usp=drive_link" target="_blank" rel="noopener" style="color:var(--seafoam); text-decoration:underline;">полная версия →</a></p>
+          <div class="ai-tools"><span>Claude</span><span>Seedance</span><span>Suno</span></div>
+        </div>
+      </div>
+      <div class="ai-card">
+        <video controls preload="metadata" poster="assets/img/poster-pesenka.jpg">
+          <source src="assets/video/pesenka-korp-podarka.mp4" type="video/mp4">
+        </video>
+        <div class="meta">
+          <h3>«Песенка для корпоративного подарка»</h3>
+          <p>Когда нужно было придумать что-то на корпоратив, решила сделать это через ИИ. Так получился праздничный ролик с оригинальной песней, сгенерированной под задачу корпоративного подарка — от идеи и текста до готового видео.*</p>
+          <div class="ai-tools"><span>Suno</span><span>Kling</span><span>Pictory</span><span>Sora</span></div>
+          <p style="margin-top:8px; font-size:12px; font-style:italic; color:var(--ink-soft);">* Создано в 2024 году, когда возможности генерации видео с помощью ИИ были ещё слабыми.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">06 — Инструменты</span>
+        <h2>С чем работаю</h2>
+      </div>
+    </div>
+    <div class="tool-grid">
+      <div class="tool-cat">
+        <span class="eyebrow">Управление</span>
+        <ul>
+          <li>Agile / Scrum</li>
+          <li>Планирование спринтов</li>
+          <li>Ведение бэклога</li>
+          <li>Работа с ТЗ</li>
+        </ul>
+      </div>
+      <div class="tool-cat">
+        <span class="eyebrow">Инструменты</span>
+        <ul>
+          <li>Trello</li>
+          <li>Kaiten</li>
+          <li>Miro</li>
+          <li>Bpm, AmoCRM</li>
+        </ul>
+      </div>
+      <div class="tool-cat">
+        <span class="eyebrow">Данные</span>
+        <ul>
+          <li>SQL</li>
+          <li>BI-инструменты</li>
+          <li>Метрики команды</li>
+          <li>Аналитика (SkyPRO, 2026)</li>
+        </ul>
+      </div>
+      <div class="tool-cat">
+        <span class="eyebrow">ИИ и языки</span>
+        <ul>
+          <li>Генерация видео и музыки</li>
+          <li>Работа со сценарием</li>
+          <li>Русский — родной</li>
+          <li>Английский — B1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">07 — Контакты</span>
+        <h2>Открыта к позиции и проектной работе</h2>
+      </div>
+    </div>
+    <p style="max-width:56ch; font-size:15.5px;">Рассматриваю проектную работу в целом — в штате или на фрилансе. Особенно интересны Edtech и Kidtech, а если проект на стыке с генеративным ИИ — это приятный бонус, а не обязательное условие.</p>
+    <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+      <a class="btn" href="mailto:alena-ice-spb@rambler.ru">Написать на почту</a>
+      <a class="btn ghost" href="assets/files/Navynko_Alena_CV.pdf">Скачать резюме</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">Алёна Навныко</div>
+        <div style="color:var(--ink-soft); font-size:14px; margin-top:4px;">Project Manager · Санкт-Петербург</div>
+      </div>
+      <div class="foot-contacts">
+        <a href="mailto:alena-ice-spb@rambler.ru">alena-ice-spb@rambler.ru</a>
+        <a href="tel:+79818828965">+7 (981) 882-89-65</a>
+      </div>
+    </div>
+    <div class="foot-note">Портфолио собрано вручную по кейсам и материалам проектов, 2026.</div>
+  </div>
+</footer>
+
+</body>
+</html>
